@@ -1,0 +1,18 @@
+export const colors = {
+  primary: '#65623d',
+  secondary: '#6b7280',
+  background: '#11404E',
+  text: '#000000',
+  placeholder: '#6b7280',
+  whiteBackground: '#FFFFFF',
+  lightGreen: '#C9E298',
+  darkGreen: '#536B24',
+  forestGreen: '#32440D',
+  offWhiteYellow: '#F2F6EA',
+  greyGreen: '#ADBA93',
+  black: '#000000',
+  red: '#F15959',
+  modalOverlay: 'rgba(84, 91, 56, 0.5)',
+  tealGreen: '#277d61',
+  darkTealGreen: '#0e563e',
+};
