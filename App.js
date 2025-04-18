@@ -1,34 +1,29 @@
-import { StatusBar } from 'expo-status-bar';
 import { useState, useEffect, useRef } from 'react';
 import {
-  SafeAreaView,
-  StyleSheet,
   Animated,
   Text,
   TextInput,
   View,
-  Image,
   TouchableOpacity,
   ImageBackground,
   Alert,
-  Platform,
 } from 'react-native';
 import { signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from './firebase.js';
+import { auth } from './src/services/firebase.js';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { TransitionPresets } from '@react-navigation/stack';
-import { styles } from './stylesheets/styles.js';
-import CustomCallout from './assets/components/CustomCallout.js';
-import BottomTabNavigator from './assets/components/BottomTabNavigator.js';
-import { SignupPage } from './assets/pages/SignupScreen.js';
-import { colors } from './assets/utils/variables.js';
+import { styles } from './src/styles/styles.js';
+import CustomCallout from './src/components/CustomCallout.js';
+import BottomTabNavigator from './src/components/BottomTabNavigator.js';
+import { SignupPage } from './src/screens/SignupScreen.js';
+import { colors } from './src/constants/variables.js';
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
-import CustomButton from './assets/components/CustomButton.js';
-import WelcomeScreen from './assets/pages/WelcomeScreen.js';
-import WelcomeScreen2 from './assets/pages/WelcomeScreen2.js';
-import { ForgotPwScreen } from './assets/pages/ForgotPwScreen.js';
+import CustomButton from './src/components/CustomButton.js';
+import WelcomeScreen from './src/screens/WelcomeScreen.js';
+import WelcomeScreen2 from './src/screens/WelcomeScreen2.js';
+import { ForgotPwScreen } from './src/screens/ForgotPwScreen.js';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -63,7 +58,7 @@ function LoginScreen({ navigation }) {
     <Animated.View style={{ flex: 1, opacity: fadeAnim }}>
       <View style={{ flex: 1, backgroundColor: colors.background }}>
         <ImageBackground
-          source={require('./assets/images/login-background.png')} // Adjust the path to your image
+          source={require('./src/assets/images/login-background.png')} // Adjust the path to your image
           style={styles.background}
         >
           <View style={styles.container}>
@@ -173,15 +168,13 @@ export default function App() {
   const Stack = createNativeStackNavigator();
 
   const [loaded, error] = useFonts({
-    'AveriaSerifLibre-Bold': require('./assets/fonts/AveriaSerifLibre-Bold.ttf'),
-    'AveriaSerifLibre-Regular': require('./assets/fonts/AveriaSerifLibre-Regular.ttf'),
-    'SourceSerif4-Regular': require('./assets/fonts/SourceSerif4_18pt-Regular.ttf'),
-    'SourceSerif4-Medium': require('./assets/fonts/SourceSerif4_18pt-Medium.ttf'),
-
-    'SourceSerif4-Bold': require('./assets/fonts/SourceSerif4-Bold.ttf'),
-
-    'SourceSerif4-SemiBold': require('./assets/fonts/SourceSerif4-SemiBold.ttf'),
-    'SourceSerif4-Italic': require('./assets/fonts/SourceSerif4-Italic.ttf'),
+    'AveriaSerifLibre-Bold': require('./src/assets/fonts/AveriaSerifLibre-Bold.ttf'),
+    'AveriaSerifLibre-Regular': require('./src/assets/fonts/AveriaSerifLibre-Regular.ttf'),
+    'SourceSerif4-Regular': require('./src/assets/fonts/SourceSerif4_18pt-Regular.ttf'),
+    'SourceSerif4-Medium': require('./src/assets/fonts/SourceSerif4_18pt-Medium.ttf'),
+    'SourceSerif4-Bold': require('./src/assets/fonts/SourceSerif4-Bold.ttf'),
+    'SourceSerif4-SemiBold': require('./src/assets/fonts/SourceSerif4-SemiBold.ttf'),
+    'SourceSerif4-Italic': require('./src/assets/fonts/SourceSerif4-Italic.ttf'),
   });
 
   useEffect(() => {
